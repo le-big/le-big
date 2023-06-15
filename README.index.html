@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marinero</title>
+    <style>
+        /* Styles CSS */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .input-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .text-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .text-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Marinero</h1>
+        <input id="input-text" class="input-bar" type="text" placeholder="Entrez du texte">
+        <ul id="text-list" class="text-list"></ul>
+    </div>
+
+    <script>
+        // JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            var inputText = document.getElementById('input-text');
+            var textList = document.getElementById('text-list');
+
+            inputText.addEventListener('keyup', function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    var text = inputText.value.trim();
+                    if (text !== '') {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = text;
+                        textList.appendChild(listItem);
+                        inputText.value = '';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
